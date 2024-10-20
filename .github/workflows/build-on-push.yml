@@ -1,0 +1,20 @@
+name: sphinx-docs
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Generate timestamp
+      run: echo "TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
+
+    - name: Build the Docker image
+      run: cd src && docker build . --file Dockerfile --tag ulenarofmondarth/spinx-docs:${TIMESTAMP}
