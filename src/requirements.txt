@@ -1,0 +1,12 @@
+sphinx-autobuild
+sphinx-polyversion[jinja,virtualenv]
+sphinx-markdown-builder
+sphinx-polyversion
+sphinx_rtd_theme
+mdformat
+mdformat-myst
+myst-parser
+linkify-it-py
+sphinx-markdown-parser
+sphinx-mdinclude
+pymdown-extensions

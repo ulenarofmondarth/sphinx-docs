@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# vim :ft=bash:
+
+set -euo pipefail
+
+__SCRIPT_DIR__=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+# shellcheck source=util-functions.sh
+. "${__SCRIPT_DIR__}/util-functions.sh"
+
+__ROOT_DIR__=$(find-project-root "${__SCRIPT_DIR__}")
+
+# This script checks the environment and sets up the project of use
+
+command -v pipx >>/dev/null 2>&1 || { echo "pipx not installed. Cannot set up the project environment." && exit 1; }
+
+[[ ":$PATH:" == *":$HOME/.local/bin:"* ]] || pipx ensurepath
+command -v pre-commit >>/dev/null 2>&1 || pipx install pre-commit
+
+if ! [ -f "${__ROOT_DIR__}/.git/hooks/commit-msg" ] || ! [ -f "${__ROOT_DIR__}/.git/hooks/pre-push" ]; then
+  pre-commit install --hook-type commit-msg --hook-type pre-push
+fi
