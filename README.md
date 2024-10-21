@@ -12,11 +12,12 @@ This project uses [`commitizen`](https://commitizen-tools.github.io/commitizen/)
 
 As most Linux distributionts have a Python interpreter installed it seems reasonable to use this implementation. The simplest install of `commitizen` uses `pipx`, so this is used by the `prepare` script. If you cannot us `pipx` the refer to the `commitizen` site for installation instructions.
 
-#. Install `pipx`
+1. Install `pipx`
    ```bash
-    sudo install pipx
-    ```
-#. Run the `prepare` script. This does some basic checks and setup.
+   sudo install pipx
+   ```
+
+1. Run the `prepare` script. This does some basic checks and setup.
    ```bash
    ./scripts/prepare
    ```
