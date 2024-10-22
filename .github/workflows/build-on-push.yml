@@ -57,10 +57,9 @@ jobs:
 
     - name: Build Documentation
       run: |
-        mkdir -p _dist
-        docker run --rm -v "${{ github.workspace }}/docs":/docs -it ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest make html
+        docker run --rm -v "${{ github.workspace }}/docs":/docs ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest make html
         cd ./docs/_build/html
-        zip -r ../../_dist/documentation-${{ github.ref_name }}.zip .
+        zip -r ${{ github.workspace }}/documentation-${{ github.ref_name }}.zip .
 
 
     - name: Deploy Documentation
