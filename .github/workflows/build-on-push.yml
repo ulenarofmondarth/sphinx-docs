@@ -1,8 +1,12 @@
-name: sphinx-docs
+name: Build and Deploy Image and Documentation
 
 on:
   push:
-    branches: [ "main" ]
+    tags: [ "v*" ]
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
 
@@ -13,8 +17,67 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Generate timestamp
-      run: echo "TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
 
-    - name: Build the Docker image
-      run: cd src && docker build . --file Dockerfile --tag ulenarofmondarth/spinx-docs:${TIMESTAMP}
+
+
+    - name: Log in to the Container registry
+      uses: docker/login-action@v3
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Docker meta
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: ${{ env.REISTRY }}/${{ env.IMAGE_NAME }}
+        tags: |
+          type=semver,pattern={{version}}
+          type=semver,pattern={{major}}.{{minor}}
+
+    - name: Build and Deploy Docker Image
+      id: push
+      uses: docker/build-push-action@v6
+      with:
+        context: ./src
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
+
+
+
+
+    - name: Build Documentation
+      run: |
+        mkdir -p _dist
+        docker run --rm -v "${{ github.workspace }}/docs":/docs -it ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest make html
+        cd ./docs/_build/html
+        zip -r ../../_dist/documentation-${{ github.ref_name }}.zip .
+
+
+    - name: Deploy Documentation
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/_build/html
+
+
+
+
+    - name: Recover Release Data
+      uses: actions/download-artifact@v4
+      with:
+        name: release-${{ github.ref_name }}
+        path: release-note.md 
+
+    - name: Release
+      uses: softprops/action-gh-release@v1
+      with:
+        body_path: "release-note.md"
+        tag_name: ${{ github.ref_name }}
+        files: |
+            release-note.md
+            documentation-${{ github.ref_name }}.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
