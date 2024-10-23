@@ -5,6 +5,8 @@
 
 Custom sphinx document generator.
 
+Full documenatation for this project is available [here](https://ulenarofmondarth.github.io/sphinx-docs/).
+
 
 # Developing this project
 
