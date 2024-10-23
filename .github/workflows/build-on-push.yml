@@ -77,16 +77,15 @@ jobs:
         workflow: bump-version.yml
         workflow_conclusion: success
         name: release-${{ github.ref_name }}
-        path: release-note.md 
+        path: ${{ github.workspace }}/release-${{ github.ref_name }}
         search_artifacts: true
 
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        body_path: "release-note.md"
+        body_path: "${{ github.workspace }}/release-${{ github.ref_name }}/release-note.md"
         tag_name: ${{ github.ref_name }}
         files: |
-            release-note.md
             documentation-${{ github.ref_name }}.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
