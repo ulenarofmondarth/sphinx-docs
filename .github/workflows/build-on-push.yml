@@ -72,10 +72,13 @@ jobs:
 
 
     - name: Recover Release Data
-      uses: actions/download-artifact@v4
+      uses: dawidd6/action-download-artifact@v6
       with:
+        workflow: bump-version.yml
+        workflow_conclusion: success
         name: release-${{ github.ref_name }}
         path: release-note.md 
+        search_artifacts: true
 
     - name: Release
       uses: softprops/action-gh-release@v1
