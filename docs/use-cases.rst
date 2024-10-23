@@ -3,8 +3,8 @@ Common Use-cases
 
 These applications are typically contained in ``npm`` ``script`` directives or (by Mondarth project convention) in ``scripts/`` utility scripts.
 
-Intialise documentation
------------------------
+Initialise documentation
+------------------------
 
 If you have not used one of the Mondarth project templates then you can create an initial document framework using the following:
 
@@ -32,7 +32,7 @@ How edit ``docs/conf.py``. I prefer the `Read the Docs <https://about.readthedoc
 Live Development Server
 -----------------------
 
-When editing documentation it is useful to see the site (and speifically the page you are editing) rendered live. This can be done using the ``sphinx-autobuild`` plugin that is installed with this image.
+When editing documentation it is useful to see the site (and specifically the page you are editing) rendered live. This can be done using the ``sphinx-autobuild`` plug-in that is installed with this image.
 
 In the root of your ``docs/`` directory:
 
