@@ -6,19 +6,20 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Common Use-cases &mdash; Mondarth Sphinx-docs 0.3.0 documentation</title>
+  <title>Common Use-cases &mdash; Mondarth Sphinx-docs 0.4.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=e259d695"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/documentation_options.js?v=6c02275b"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Setup for Developers" href="setup.html" />
     <link rel="prev" title="Mondarth Sphinx-docs documentation" href="index.html" /> 
 </head>
 
@@ -41,13 +42,21 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
+              <p class="caption" role="heading"><span class="caption-text">Users:</span></p>
+<ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Common Use-cases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#intialise-documentation">Intialise documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initialise-documentation">Initialise documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#live-development-server">Live Development Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-documentation-site">Build Documentation Site</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup for Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Build</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workflow.html">GitHub Workflow</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commitizen.html">Commitizen</a></li>
 </ul>
 
         </div>
@@ -77,8 +86,8 @@
   <section id="common-use-cases">
 <h1>Common Use-cases<a class="headerlink" href="#common-use-cases" title="Link to this heading"></a></h1>
 <p>These applications are typically contained in <code class="docutils literal notranslate"><span class="pre">npm</span></code> <code class="docutils literal notranslate"><span class="pre">script</span></code> directives or (by Mondarth project convention) in <code class="docutils literal notranslate"><span class="pre">scripts/</span></code> utility scripts.</p>
-<section id="intialise-documentation">
-<h2>Intialise documentation<a class="headerlink" href="#intialise-documentation" title="Link to this heading"></a></h2>
+<section id="initialise-documentation">
+<h2>Initialise documentation<a class="headerlink" href="#initialise-documentation" title="Link to this heading"></a></h2>
 <p>If you have not used one of the Mondarth project templates then you can create an initial document framework using the following:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;prolect<span class="w"> </span>root&gt;
 mkdir<span class="w"> </span>docs
@@ -88,7 +97,7 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 <p>Answer the questions presented and you will see a basic documentation framework in <code class="docutils literal notranslate"><span class="pre">docs/</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Throughout this documentation I assume you selected <code class="docutils literal notranslate"><span class="pre">No</span></code> (the default) to maintaining in separat build directory.</p>
+<p>Throughout this documentation I assume you selected <code class="docutils literal notranslate"><span class="pre">No</span></code> (the default) to maintaining in separate build directory.</p>
 </div>
 <p>How edit <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code>. I prefer the <a class="reference external" href="https://about.readthedocs.com/?ref=readthedocs.org">Read the Docs</a> style of documentation, so that theme is pre-installed in this image. Change the two lines shown below to use this theme.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sphinx_rtd_theme&#39;</span><span class="p">]</span>
@@ -99,7 +108,7 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 </section>
 <section id="live-development-server">
 <h2>Live Development Server<a class="headerlink" href="#live-development-server" title="Link to this heading"></a></h2>
-<p>When editing documentation it is useful to see the site (and speifically the page you are editing) rendered live. This can be done using the <code class="docutils literal notranslate"><span class="pre">sphinx-autobuild</span></code> plugin that is installed with this image.</p>
+<p>When editing documentation it is useful to see the site (and specifically the page you are editing) rendered live. This can be done using the <code class="docutils literal notranslate"><span class="pre">sphinx-autobuild</span></code> plug-in that is installed with this image.</p>
 <p>In the root of your <code class="docutils literal notranslate"><span class="pre">docs/</span></code> directory:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="s2">:</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>--name<span class="w"> </span>docdevserver<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8081</span>:8000<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>:/doc<span class="w"> </span>-w<span class="w"> </span>/doc<span class="w"> </span>ulenarofmondarth/sphinx-docs<span class="w"> </span>sphinx-autobuild<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span>.<span class="w"> </span>_build/html
 </pre></div>
@@ -112,7 +121,7 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
 </section>
 <section id="build-documentation-site">
 <h2>Build Documentation Site<a class="headerlink" href="#build-documentation-site" title="Link to this heading"></a></h2>
-<p>To simply build the site for you documentation:</p>
+<p>To simply build the site for your documentation:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>id<span class="w"> </span>-u<span class="k">)</span><span class="s2">:</span><span class="k">$(</span>id<span class="w"> </span>-g<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>--name<span class="w"> </span>docdevserver<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8081</span>:8000<span class="w"> </span>-v<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>:/doc<span class="w"> </span>-w<span class="w"> </span>/doc<span class="w"> </span>ulenarofmondarth/sphinx-docs<span class="w"> </span>make<span class="w"> </span>html
 </pre></div>
 </div>
@@ -124,6 +133,7 @@ docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Mondarth Sphinx-docs documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="setup.html" class="btn btn-neutral float-right" title="Setup for Developers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

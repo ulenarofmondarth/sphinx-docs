@@ -1,0 +1,138 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Workflow &mdash; Mondarth Sphinx-docs 0.4.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=6c02275b"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Commitizen" href="commitizen.html" />
+    <link rel="prev" title="Build" href="build.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Mondarth Sphinx-docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Users:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="use-cases.html">Common Use-cases</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developers:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup for Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Build</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">GitHub Workflow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-they-work">How they work</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commitizen.html">Commitizen</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mondarth Sphinx-docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">GitHub Workflow</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/workflow.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="github-workflow">
+<h1>GitHub Workflow<a class="headerlink" href="#github-workflow" title="Link to this heading"></a></h1>
+<p>In the <code class="docutils literal notranslate"><span class="pre">.github/workflows</span></code> directory are two workflows used to build and publish <code class="docutils literal notranslate"><span class="pre">sphinx-docs</span></code>.</p>
+<p>If you want to use these in your own forked version of <code class="docutils literal notranslate"><span class="pre">sphinx-docs</span></code> you will need to setup a GitHub <code class="docutils literal notranslate"><span class="pre">PERSONAL_ACCESS_TOKEN</span></code> (see <a class="reference external" href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">GitHub’s documentation</a>).</p>
+<section id="how-they-work">
+<h2>How they work<a class="headerlink" href="#how-they-work" title="Link to this heading"></a></h2>
+<p class="rubric" id="bump-version">bump-version</p>
+<p>When you push a commit to GitHub with the <code class="docutils literal notranslate"><span class="pre">bump:</span></code> prefix (see <a class="reference internal" href="commitizen.html#commitizen-bump"><span class="std std-ref">bump</span></a>) the <code class="docutils literal notranslate"><span class="pre">.github/workflow/bump-version.yml</span></code> workflow is triggered. This will prepare a release note (based on the commit comments relevant to this release).</p>
+<p>The release note produced in <code class="docutils literal notranslate"><span class="pre">bump-version</span></code> is passed to other workflows as an artifact (see <a class="reference external" href="https://github.com/actions/upload-artifact">upload-artifact</a>).</p>
+<p>The <a class="reference external" href="https://github.com/commitizen-tools/commitizen-action">commitizen-action</a> in <code class="docutils literal notranslate"><span class="pre">bump-version</span></code> pushes a new tag, this triggers the <code class="docutils literal notranslate"><span class="pre">.github/workflow/build-on_push.yml</span></code> workflow.</p>
+<p class="rubric">build-on-push</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">build-on-push</span></code> workflow:</p>
+<ul class="simple">
+<li><p>builds the docker image from source</p></li>
+<li><p>uploads the new image to the GitHub docker repository</p></li>
+<li><p>rebuilds this documentation</p></li>
+<li><p>creates a release bundle</p></li>
+<li><p>deploys the documentation to GitHub pages, and</p></li>
+<li><p>creates a new GitHub release.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="build.html" class="btn btn-neutral float-left" title="Build" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="commitizen.html" class="btn btn-neutral float-right" title="Commitizen" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, UlenarOfMondarth.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

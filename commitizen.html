@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mondarth Sphinx-docs documentation &mdash; Mondarth Sphinx-docs 0.4.0 documentation</title>
+  <title>Commitizen &mdash; Mondarth Sphinx-docs 0.4.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
@@ -19,7 +19,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Common Use-cases" href="use-cases.html" /> 
+    <link rel="prev" title="GitHub Workflow" href="workflow.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -30,7 +30,7 @@
 
           
           
-          <a href="#" class="icon icon-home">
+          <a href="index.html" class="icon icon-home">
             Mondarth Sphinx-docs
           </a>
 <div role="search">
@@ -46,11 +46,15 @@
 <li class="toctree-l1"><a class="reference internal" href="use-cases.html">Common Use-cases</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Developers:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup for Developers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="build.html">Build</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow.html">GitHub Workflow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="commitizen.html">Commitizen</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Commitizen</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#commit">commit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bump">bump</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -59,17 +63,17 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Mondarth Sphinx-docs</a>
+          <a href="index.html">Mondarth Sphinx-docs</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Mondarth Sphinx-docs documentation</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Commitizen</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/commitizen.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -77,52 +81,25 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="mondarth-sphinx-docs-documentation">
-<h1>Mondarth Sphinx-docs documentation<a class="headerlink" href="#mondarth-sphinx-docs-documentation" title="Link to this heading"></a></h1>
-<p>This image is used to create documentation accompanying various Mondarth projects.</p>
-<p>Pull the image using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/ulenarofmondarth/sphinx-docs:latest
-</pre></div>
-</div>
-<p>Or refer to the <a class="reference external" href="https://github.com/ulenarofmondarth/sphinx-docs/pkgs/container/sphinx-docs">packages</a> page for explicit version tags.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Users:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="use-cases.html">Common Use-cases</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="use-cases.html#initialise-documentation">Initialise documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="use-cases.html#live-development-server">Live Development Server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="use-cases.html#build-documentation-site">Build Documentation Site</a></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Developers:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup for Developers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#pre-requisistes">Pre-requisistes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#starting-work">Starting Work</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="build.html">Build</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workflow.html">GitHub Workflow</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="workflow.html#how-they-work">How they work</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="commitizen.html">Commitizen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="commitizen.html#commit">commit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commitizen.html#bump">bump</a></li>
-</ul>
-</li>
-</ul>
-</div>
+  <section id="commitizen">
+<span id="id1"></span><h1>Commitizen<a class="headerlink" href="#commitizen" title="Link to this heading"></a></h1>
+<p>This project uses <code class="docutils literal notranslate"><span class="pre">commitizen</span></code> (see <a class="reference external" href="https://commitizen-tools.github.io/commitizen/getting_started/">commitizen documentation</a>) to standardise git commit messaging.</p>
+<section id="commit">
+<span id="commitizen-commit"></span><h2>commit<a class="headerlink" href="#commit" title="Link to this heading"></a></h2>
+<p>You can commit using <code class="docutils literal notranslate"><span class="pre">cz</span> <span class="pre">commit</span></code> (or simply <code class="docutils literal notranslate"><span class="pre">cz</span> <span class="pre">c</span></code>). This will take you through a series fo prompts to ensure your commit message meets the project standard.</p>
+<p>It you use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code> directly your comment will be validated against the project standard. Your commit will fail of your commit message does not comply, so it is generally simplest to use <code class="docutils literal notranslate"><span class="pre">cz</span> <span class="pre">c</span></code>.</p>
+</section>
+<section id="bump">
+<span id="commitizen-bump"></span><h2>bump<a class="headerlink" href="#bump" title="Link to this heading"></a></h2>
+<p>When you are ready to release the project from the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> of <code class="docutils literal notranslate"><span class="pre">main</span></code>, use <code class="docutils literal notranslate"><span class="pre">cz</span> <span class="pre">bump</span></code> to update the project version (according to the <a class="reference external" href="https://semver.org/">semver</a> rules) and commit a new <code class="docutils literal notranslate"><span class="pre">tag</span></code> to the GitHub repository. This will trigger the <code class="docutils literal notranslate"><span class="pre">bump-version</span></code> workflow (see <a class="reference internal" href="workflow.html#bump-version"><span class="std std-ref">bump-version</span></a>).</p>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="use-cases.html" class="btn btn-neutral float-right" title="Common Use-cases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="workflow.html" class="btn btn-neutral float-left" title="GitHub Workflow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
