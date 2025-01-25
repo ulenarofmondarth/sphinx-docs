@@ -18,7 +18,7 @@ Answer the questions presented and you will see a basic documentation framework 
 
 .. note::
 
-   Throughout this documentation I assume you selected ``No`` (the default) to maintaining in separat build directory.
+   Throughout this documentation I assume you selected ``No`` (the default) to maintaining in separate build directory.
 
 How edit ``docs/conf.py``. I prefer the `Read the Docs <https://about.readthedocs.com/?ref=readthedocs.org>`_ style of documentation, so that theme is pre-installed in this image. Change the two lines shown below to use this theme.
 
@@ -51,7 +51,7 @@ You will be able to access your documentation at `<http://localhost:8081>`_. Whe
 Build Documentation Site
 ------------------------
 
-To simply build the site for you documentation:
+To simply build the site for your documentation:
 
 .. code:: bash
 

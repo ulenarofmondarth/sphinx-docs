@@ -13,6 +13,15 @@ Or refer to the `packages <https://github.com/ulenarofmondarth/sphinx-docs/pkgs/
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Users:
 
-  use-cases.rst 
+   use-cases.rst 
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Developers:
+
+   setup.rst 
+   build.rst
+   workflow.rst
+   commitizen.rst
