@@ -20,4 +20,4 @@ It you use ``git commit`` directly your comment will be validated against the pr
 bump
 ----
 
-When you are ready to release the project from the ``HEAD`` of ``main``, use ``cz bump`` to update the project version (according to the `semver <https://semver.org/>`_ rules) and commit a new ``tag`` to the GitHub repository. This will trigger the ``bump-version`` workflow (see :ref:`bump-version`).
+Whenever you ``push`` to ``main`` on the remote repository the ``bump-version`` workflow will be triggered (see :ref:`bump-version`). There is no need to ``cz bump`` the prolect locally.
