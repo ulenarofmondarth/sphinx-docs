@@ -10,3 +10,4 @@ linkify-it-py
 sphinx-markdown-parser
 sphinx-mdinclude
 pymdown-extensions
+sphinxcontrib-mermaid
