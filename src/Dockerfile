@@ -8,4 +8,4 @@ RUN python3 -m pip install --root-user-action=ignore -r requirements.txt
 
 LABEL vendor="UlenarOfMondarth" \
       description="Mondarth custom Sphinx image" \
-      version="0.3.0"
+      version="0.4.0"
