@@ -1,3 +1,9 @@
+## v0.6.0 (2025-02-16)
+
+### Feat
+
+- **requirements**: add sphinx-design
+
 ## v0.5.0 (2025-02-14)
 
 ### Feat
