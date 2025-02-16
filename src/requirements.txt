@@ -13,3 +13,4 @@ pymdown-extensions
 sphinxcontrib-mermaid
 sphinxcontrib-video
 sphinxcontrib-youtube
+sphinx-design
